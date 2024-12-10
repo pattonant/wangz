@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界色卡</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/motion@10.16.2/dist/motion.min.js"></script>
+    <script type="module" src="/js/@tauri-apps/api/tauri.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="animate-header">
+            <h1>世界色卡</h1>
+            <div class="search-box animate-search">
+                <i class="search-icon">🔍</i>
+                <input type="text" id="searchInput" placeholder="搜索颜色..." />
+                <button class="clear-search">✕</button>
+            </div>
+        </header>
+
+        <div class="category-buttons animate-buttons">
+            <button class="category-btn active" data-category="all">所有色卡</button>
+            <button class="category-btn" data-category="regular">常规色卡</button>
+            <button class="category-btn" data-category="pantone">Pantone色卡</button>
+            <button class="category-btn" data-category="ral">RAL色卡</button>
+            <button class="category-btn" data-category="traditional">中国传统色</button>
+            <button class="category-btn" data-category="munsell">Munsell色卡</button>
+            <button class="category-btn" data-category="ncs">NCS色卡</button>
+            <button class="category-btn" data-category="web">网页安全色</button>
+            <button class="category-btn" data-category="gradient">渐变色卡</button>
+        </div>
+
+        <div class="gradient-controls">
+            <div class="control-group">
+                <label>渐变方向:</label>
+                <select id="gradientDirection">
+                    <option value="to right">向右</option>
+                    <option value="to bottom right">右下</option>
+                    <option value="45deg">45度</option>
+                    <option value="135deg">135度</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label>透明度:</label>
+                <input type="range" id="gradientOpacity" min="0.3" max="1" step="0.1" value="1">
+            </div>
+        </div>
+
+        <div id="colorCardsContainer" class="color-cards-container"></div>
+        <div id="loadingIndicator" class="loading-indicator">正在加载颜色...</div>
+        <button class="back-to-top">
+            <svg class="arrow-up" viewBox="0 0 24 24">
+                <path d="M12 4l-8 8h16l-8-8z" fill="currentColor"/>
+            </svg>
+        </button>
+    </div>
+
+    <script type="module" src="/js/lazyLoad.js"></script>
+</body>
+</html>
